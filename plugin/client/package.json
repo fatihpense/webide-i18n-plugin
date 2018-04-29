@@ -1,0 +1,11 @@
+{
+	"name": "i18nhelper",
+	"title": "i18n Helper Plugin",
+	"version": "1.0.0",
+	"description": "Compares XML views and property files",
+	"homepage": "https://github.com/fatihpense/webide-i18n-plugin",
+	"icon": "",
+	"bundledPlugins": {
+		"i18n_helper_plugin": "file:i18n_helper_plugin"
+	}
+}

@@ -1,0 +1,14 @@
+{
+	"name": "i18nhelper_plugin.service.I18nHelper",
+	"description": "I18n helper service interface",
+	"methods": {
+		"compareFiles": {
+			"description": "Compares XML views and property files",
+			"params": []
+		}
+	},
+
+	"events": {
+		
+	}
+}

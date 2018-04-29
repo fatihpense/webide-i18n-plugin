@@ -1,0 +1,64 @@
+{
+	"name": "i18n_helper_plugin",
+	"description": "",
+	"i18n": "i18n_helper_plugin/i18n/i18n",
+	"requires": {
+		"services": [
+			"usernotification",
+			"log",
+			"selection",
+			"content",
+			"command",
+			"commandGroup"
+		]
+	},
+	"provides": {
+		"services": {
+			"i18nhelper": {
+				"implements": "i18n_helper_plugin.service.I18nHelper",
+				"module": "i18n_helper_plugin/service/I18nHelper"
+			}
+		},
+
+		"interfaces": {
+			"i18n_helper_plugin.service.I18nHelper": "i18n_helper_plugin/service/I18nHelper"
+		}
+	},
+	"configures": {
+		"services": {
+			"command:commands": [ {
+				"id": "i18n_helper_plugin.compare_files",
+				"label": "{i18n>command_i18n_compare_files}",
+				"service": "i18n_helper_plugin/command/FileCompare"
+			}],
+
+			"commandGroup:groups": [{
+				"id": "tools.i18nhelper",
+				"label": "{i18n>commandgroup_i18n}"
+			}, {
+				"id": "tools.i18nhelper.helpers"
+			}],
+
+			"commandGroup:items": [{
+				"parent": "tools",
+				"type": "menu",
+				"group": "tools.i18nhelper",
+				"prio": 100
+			}, {
+				"parent": "tools.i18nhelper",
+				"type": "inline",
+				"group": "tools.i18nhelper.helpers",
+				"prio": 10
+			},  {
+				"parent": "tools.i18nhelper.helpers",
+				"type": "action",
+				"command": "i18n_helper_plugin.compare_files",
+				"prio": 10
+			}]
+		}
+	},
+
+	"subscribes": {
+		
+	}
+}

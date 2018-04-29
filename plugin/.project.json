@@ -1,0 +1,35 @@
+{
+  "projectType": [
+    "sap.watt.uitools.ide.feature"
+  ],
+  "plugindevelopment": {
+    "devUrlParameters": {
+      "sap-ide-debug": "false"
+    }
+  },
+  "generation": [
+    {
+      "templateId": "plugindevelopment.emptyFeature",
+      "templateVersion": "1.4.0",
+      "dateTimeStamp": "Fri, 27 Apr 2018 21:36:21 GMT"
+    }
+  ],
+  "translation": {
+    "translationDomain": "",
+    "supportedLanguages": "en,fr,de",
+    "defaultLanguage": "en",
+    "defaultI18NPropertyFile": "i18n.properties",
+    "resourceModelName": "i18n"
+  },
+  "basevalidator": {
+    "services": {
+      "xml": "xmlValidator",
+      "js": "jsValidator"
+    }
+  },
+  "hcpdeploy": {
+    "account": "p732728trial",
+    "name": "i18nhelper",
+    "lastVersionWeTriedToDeploy": "1.0.0"
+  }
+}
