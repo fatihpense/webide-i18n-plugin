@@ -1,0 +1,11 @@
+rollup src/main.mjs --o bundle.js --f iife --name "myi18nmodule" -e q -g q:Q
+
+//use config
+rollup -c
+
+Web IDE needs this for eslint errors:
+/* eslint semi:0 , no-constant-condition:0, curly:0 , no-func-assign:0 , no-reserved-keys:0, no-inner-declarations:0  */
+
+
+node --experimental-modules test/prop-test.mjs
+npm test
