@@ -61,6 +61,21 @@ export function readI18nUsageFromXML(file_content, file_path) {
 }
 
 
+function getUsageFromXMLAttribute(file, attributeString) {
+    var regex = RegExp('(\{i18n>[^}]*\})', 'g');
+    //var str1 = 'table {i18n>test}football, {i18n>test2}foosball';
+    var arrayTemp = [];
+    var resultArr = [];
+    while ((arrayTemp = regex.exec(attributeString)) !== null) {
+        var i18nUsage = {
+            file: file,
+            value: arrayTemp[0].substring(6, arrayTemp[0].length - 1)
+        }
+        resultArr.push(i18nUsage);
+    }
+    return resultArr;
+}
+
 //var i18nUsage = {file:"",value:""}
 export function getI18nUsageInXMLRecursive(arr, file, el) {
     if (el.nodeType != ELEMENT_NODE) {
@@ -69,15 +84,9 @@ export function getI18nUsageInXMLRecursive(arr, file, el) {
     //console.log(el.tagName);
     for (var i = 0; i < el.attributes.length; i++) {
         var attr = el.attributes[i];
-        if (attr.value.startsWith("{i18n>")) {
-            var i18nUsage = {
-                file: file,
-                value: attr.value.substring(6, attr.value.length - 1)
-            }
-            arr.push(i18nUsage);
-            //console.log(el.tagName);
-            //console.log(i18nUsage);
-        }
+        var results = getUsageFromXMLAttribute(file, attr.value);
+        Array.prototype.push.apply(arr, results);
+
     }
     //search children
     for (var i = 0; i < el.childNodes.length; i++) {
